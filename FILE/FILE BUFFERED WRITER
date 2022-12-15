@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FileWriterBW {
+    public static void main(String[] args) throws IOException, FileNotFoundException {
+        File outFile = new File("output.txt");
+        System.out.println("File path: " +outFile.getAbsolutePath());
+        FileWriter fw = new FileWriter(outFile, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+        try {
+            bw.write("\n\nThis is the part when I say I don't want ya");
+            bw.write("\nI'm stronger than I've been before");
+            bw.newLine();
+            bw.write("\nThis is the part when I break free");
+            bw.write("\nCause I can't resist it no more");
+ 
+        } catch(Exception e) {
+            System.out.println("ERROR HAS OCCURED WHEN WRITING FILE: ");
+            System.out.println(e.getMessage());
+        }
+        finally {
+            bw.flush();
+            bw.close();
+        }
+        
+    } 
+}
