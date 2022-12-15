@@ -17,6 +17,9 @@ public class FileReadFR {
             System.out.println("THERE IS AN ERROR!");
             System.out.println(e.getMessage());
         }
+        finally {
+            inFile.close();
+        }
         
     } 
 }
