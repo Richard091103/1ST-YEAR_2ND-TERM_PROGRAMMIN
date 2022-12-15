@@ -17,7 +17,7 @@ public class FileReadBR {
             System.out.println(e.getMessage());
         }
         finally {
-            inFile.close();
+            br.close();
         }
         
     } 
