@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FileReadBR {
+    public static void main(String[] args) throws IOException, FileNotFoundException {
+        File inFile = new File("C:\\Users\\menesesrv\\Documents\\NetBeansProjects\\Test\\input.txt");
+        BufferedReader br = new BufferedReader(new FileReader(inFile));
+        
+        try {
+            String text;
+            while ((text = br.readLine()) != null) {
+                System.out.println(text);
+            }
+            
+        } catch(Exception e) {
+            System.out.println("THERE IS AN ERROR!");
+            System.out.println(e.getMessage());
+        }
+        finally {
+            inFile.close();
+        }
+        
+    } 
+}
