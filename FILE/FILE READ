@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FileRead {
+    public static void main(String[] args) throws FileNotFoundException {
+        File inputFile = new File("C:\\Users\\menesesrv\\Documents\\NetBeansProjects\\Test\\input.txt");
+        Scanner inFile = new Scanner(inputFile);
+        
+        try {
+            while (inFile.hasNextLine()) {
+                System.out.println(inFile.nextLine());
+            }
+            System.out.println();
+            
+        } catch(Exception e) {
+            System.out.println("THERE IS AN ERROR!");
+            System.out.println(e.getMessage());
+        }
+        
+    }
+}
