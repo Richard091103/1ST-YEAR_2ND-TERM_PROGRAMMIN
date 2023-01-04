@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class Number4 {
+    public static void main(String[] args) throws IOException {
+        // Prompt the user for the file name
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the file name: ");
+        String fileName = in.nextLine();
+
+        // Count the number of words in the file
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        String line;
+        int wordCount = 0;
+        while ((line = reader.readLine()) != null) {
+            String[] words = line.split("\\s+");
+            wordCount += words.length;
+        }
+        reader.close();
+in.close();
+        // Display the word count
+        System.out.println("Number of words: " + wordCount);
+    }
+}
