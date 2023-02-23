@@ -1,0 +1,35 @@
+import javax.swing.*;
+import java.awt.*;
+
+
+public class SassaGhurlAcim {
+    JFrame frame = new JFrame();
+    ImageIcon bg = new ImageIcon("sassagurl.jpg");
+    
+
+    public SassaGhurlAcim (){
+        Image img = bg.getImage();
+        bg = new ImageIcon(img.getScaledInstance(500, 500, Image.SCALE_SMOOTH));
+        frame.setSize(500, 500);
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+
+        JLabel lblBackground = new JLabel(bg);
+        lblBackground.setLayout(new FlowLayout());
+        lblBackground.setBounds(0, 0, 500, 500);;
+        frame.add(lblBackground);
+        
+
+        Toolkit tk = frame.getToolkit();
+        Dimension size = tk.getScreenSize();
+        frame.setLocation(size.width/2 - frame.getWidth()/2, size.height/2 - frame.getHeight()/2);
+        
+
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new SassaGhurlAcim();
+        // or
+        // SassaGhurlAcim GUI = new SassaGhurlAcim();
+    }
+}
