@@ -150,11 +150,41 @@ public class RamenHouse implements ActionListener{
                 ramen = "Aka Ramen";
             }
 
-            bw.write("Ramen Type: " +ramen);
+            bw.write("Ramen type: "+ramen);
+            bw.newLine();
+            bw.write("Level of spice: ");
+            bw.write(cmbSpice.getItemAt(cmbSpice.getSelectedIndex()));
+            bw.newLine();
+            bw.write("Hardness of noodles: ");
+            bw.write(cmbNoodle.getItemAt(cmbNoodle.getSelectedIndex()));
+            bw.newLine();
+            
+            if(cbxEgg.isSelected()){
+                aOrders.add(cbxEgg.getText());
+            }
+            if(cbxNoodle.isSelected()){
+                aOrders.add(cbxNoodle.getText());
+            }
+            if(cbxKaraage.isSelected()){
+                aOrders.add(cbxKaraage.getText());
+            }
+            if(cbxChasu.isSelected()){
+                aOrders.add(cbxChasu.getText());
+            }
+            if(cbxDrink.isSelected()){
+                aOrders.add(cbxDrink.getText());
+            }
 
+            for(String item : aOrders){
+                bw.write(item);
+                bw.newLine();
+            }
 
-        } catch (Exception e) {
-            // TODO: handle exception
+        } catch (IOException e) {
+            e.getCause();
+        } finally {
+            bw.flush();
+            bw.close();
         }
     } 
     
