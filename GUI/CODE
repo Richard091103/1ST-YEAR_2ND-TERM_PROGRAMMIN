@@ -158,7 +158,9 @@ public class RamenHouse implements ActionListener{
             bw.write("Hardness of noodles: ");
             bw.write(cmbNoodle.getItemAt(cmbNoodle.getSelectedIndex()));
             bw.newLine();
-            
+            bw.write("Additional Order/s: ");
+            bw.newLine();
+
             if(cbxEgg.isSelected()){
                 aOrders.add(cbxEgg.getText());
             }
