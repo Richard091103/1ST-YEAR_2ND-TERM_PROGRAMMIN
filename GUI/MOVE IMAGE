@@ -1,0 +1,59 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Acim extends JFrame implements KeyListener {
+    ImageIcon img = new ImageIcon("Sassa.gif");
+    JTextField tfAction = new JTextField("Äction Taken", 30);
+    JLabel object = new JLabel(img);
+    
+    public Acim() {
+        setSize(900, 900);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("Sassa Gurl!");
+
+        tfAction.setFocusable(false);
+        addKeyListener(this); // Register
+
+        add(tfAction);
+        add(object);
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new Acim();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_UP) {
+            tfAction.setText("Pressed arrow key UP");
+            object.setLocation(object.getX(), object.getY()-5);
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+            tfAction.setText("Pressed arrow key DOWN");
+            object.setLocation(object.getX(), object.getY()+5);
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+            tfAction.setText("Pressed arrow key LEFT");
+            object.setLocation(object.getX()-5, object.getY());
+        } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            tfAction.setText("Pressed arrow key TIGHT");
+            object.setLocation(object.getX()+5, object.getY());
+        } else {
+            tfAction.setText("INVALID KEY");
+        }
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
+}
