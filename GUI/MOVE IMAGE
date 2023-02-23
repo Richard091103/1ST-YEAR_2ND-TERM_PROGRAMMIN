@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Acim extends JFrame implements KeyListener {
+public class Acim extends JFrame implements KeyListener, MouseListener {
     ImageIcon img = new ImageIcon("Sassa.gif");
     JTextField tfAction = new JTextField("Äction Taken", 30);
     JLabel object = new JLabel(img);
@@ -16,6 +18,7 @@ public class Acim extends JFrame implements KeyListener {
 
         tfAction.setFocusable(false);
         addKeyListener(this); // Register
+        addMouseListener(this); // Register
 
         add(tfAction);
         add(object);
@@ -44,7 +47,7 @@ public class Acim extends JFrame implements KeyListener {
             tfAction.setText("Pressed arrow key LEFT");
             object.setLocation(object.getX()-5, object.getY());
         } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            tfAction.setText("Pressed arrow key TIGHT");
+            tfAction.setText("Pressed arrow key RIGHT");
             object.setLocation(object.getX()+5, object.getY());
         } else {
             tfAction.setText("INVALID KEY");
@@ -52,8 +55,43 @@ public class Acim extends JFrame implements KeyListener {
         
     }
 
+
     @Override
     public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        tfAction.setText("Mouse Clicked");
+        object.setLocation(e.getX(), e.getY());
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        tfAction.setText("Mouse Pressed");
+        object.setLocation(e.getX(), e.getY());
+        
+        
+    }
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        tfAction.setText("Mouse Released");
+        object.setLocation(e.getX(), e.getY());
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        tfAction.setText("Mouse Clicked");
+        object.setLocation(0, 0);
+        
+        
+    }
+    @Override
+    public void mouseExited(MouseEvent e) {
+        tfAction.setText("Mouse exit to the frame");
+        object.setLocation(400, 400);
+        
         
     }
 }
